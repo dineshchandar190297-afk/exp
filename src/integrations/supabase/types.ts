@@ -14,7 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      simulation_history: {
+        Row: {
+          circuit_data: Json
+          created_at: string | null
+          id: string
+          result_data: Json
+          title: string | null
+          user_id: string
+        }
+        Insert: {
+          circuit_data: Json
+          created_at?: string | null
+          id?: string
+          result_data: Json
+          title?: string | null
+          user_id: string
+        }
+        Update: {
+          circuit_data?: Json
+          created_at?: string | null
+          id?: string
+          result_data?: Json
+          title?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
