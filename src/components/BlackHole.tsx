@@ -122,7 +122,6 @@ export default function BlackHole({ isPaused = false }: { isPaused?: boolean }) 
         camera={{ position: [0, 2, 8], fov: 60 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <color attach="background" args={['transparent']} />
         <ambientLight intensity={0.3} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#00bcd4" />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#a855f7" />
