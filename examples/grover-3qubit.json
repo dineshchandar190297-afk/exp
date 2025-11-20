@@ -1,0 +1,85 @@
+{
+  "qubits": 3,
+  "gates": [
+    {
+      "type": "H",
+      "target": 0,
+      "time": 0,
+      "id": "H-grover-1"
+    },
+    {
+      "type": "H",
+      "target": 1,
+      "time": 0,
+      "id": "H-grover-2"
+    },
+    {
+      "type": "H",
+      "target": 2,
+      "time": 0,
+      "id": "H-grover-3"
+    },
+    {
+      "type": "X",
+      "target": 0,
+      "time": 1,
+      "id": "X-grover-4"
+    },
+    {
+      "type": "X",
+      "target": 1,
+      "time": 1,
+      "id": "X-grover-5"
+    },
+    {
+      "type": "H",
+      "target": 2,
+      "time": 2,
+      "id": "H-grover-6"
+    },
+    {
+      "type": "CX",
+      "control": 0,
+      "target": 2,
+      "time": 3,
+      "id": "CX-grover-7"
+    },
+    {
+      "type": "CX",
+      "control": 1,
+      "target": 2,
+      "time": 4,
+      "id": "CX-grover-8"
+    },
+    {
+      "type": "H",
+      "target": 2,
+      "time": 5,
+      "id": "H-grover-9"
+    },
+    {
+      "type": "X",
+      "target": 0,
+      "time": 6,
+      "id": "X-grover-10"
+    },
+    {
+      "type": "X",
+      "target": 1,
+      "time": 6,
+      "id": "X-grover-11"
+    },
+    {
+      "type": "H",
+      "target": 0,
+      "time": 7,
+      "id": "H-grover-12"
+    },
+    {
+      "type": "H",
+      "target": 1,
+      "time": 7,
+      "id": "H-grover-13"
+    }
+  ]
+}

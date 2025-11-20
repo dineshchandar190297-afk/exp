@@ -1,0 +1,30 @@
+{
+  "qubits": 2,
+  "gates": [
+    {
+      "type": "H",
+      "target": 0,
+      "time": 0,
+      "id": "H-bell-1"
+    },
+    {
+      "type": "CX",
+      "control": 0,
+      "target": 1,
+      "time": 1,
+      "id": "CX-bell-2"
+    },
+    {
+      "type": "M",
+      "target": 0,
+      "time": 2,
+      "id": "M-bell-3"
+    },
+    {
+      "type": "M",
+      "target": 1,
+      "time": 2,
+      "id": "M-bell-4"
+    }
+  ]
+}
