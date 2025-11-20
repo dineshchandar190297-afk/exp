@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        quantum: {
+          glow: "hsl(var(--quantum-glow))",
+          purple: "hsl(var(--quantum-purple))",
+          horizon: "hsl(var(--event-horizon))",
+          accretion: "hsl(var(--accretion))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -81,9 +87,36 @@ export default {
           },
         },
       },
+      keyframes: {
+        ...{
+          "accordion-down": {
+            from: { height: "0" },
+            to: { height: "var(--radix-accordion-content-height)" },
+          },
+          "accordion-up": {
+            from: { height: "var(--radix-accordion-content-height)" },
+            to: { height: "0" },
+          },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.05)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin-slow 20s linear infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
       },
     },
   },
