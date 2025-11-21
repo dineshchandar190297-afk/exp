@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import QuantumAtom from '@/components/QuantumAtom';
+import StarCursor from '@/components/StarCursor';
 import spaceBackground from '@/assets/space-background.png';
 import { Sparkles } from 'lucide-react';
 
@@ -28,6 +29,7 @@ export default function Index() {
         backgroundAttachment: 'fixed'
       }}
     >
+      <StarCursor />
       <div className="absolute inset-0 bg-background/50 backdrop-blur-sm" />
       
       {/* Quantum Atom centered and lower */}

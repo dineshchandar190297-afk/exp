@@ -9,6 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
 import { Atom, Mail, Phone } from 'lucide-react';
 import QuantumAtom from '@/components/QuantumAtom';
+import StarCursor from '@/components/StarCursor';
+import spaceBackground from '@/assets/space-background.png';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -110,8 +112,22 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative bg-background overflow-hidden">
-      <QuantumAtom />
+    <div 
+      className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden star-cursor"
+      style={{
+        backgroundImage: `url(${spaceBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <StarCursor />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      
+      {/* Quantum Atom in background */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
+        <QuantumAtom />
+      </div>
       
       <Card className="w-full max-w-md p-8 bg-card/95 backdrop-blur-md border-primary/30 relative z-20 shadow-2xl">
         <div className="flex items-center justify-center gap-3 mb-6">
