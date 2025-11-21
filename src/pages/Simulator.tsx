@@ -8,6 +8,8 @@ import ResultsPanel, { SimulationResult } from '@/components/ResultsPanel';
 import { BookOpen, LogOut, History } from 'lucide-react';
 import { toast } from 'sonner';
 import spaceBackground from '@/assets/space-background.png';
+import QuantumAtom from '@/components/QuantumAtom';
+import StarCursor from '@/components/StarCursor';
 
 export default function Simulator() {
   const navigate = useNavigate();
@@ -105,7 +107,7 @@ export default function Simulator() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col relative"
+      className="min-h-screen flex flex-col relative star-cursor"
       style={{
         backgroundImage: `url(${spaceBackground})`,
         backgroundSize: 'cover',
@@ -113,7 +115,13 @@ export default function Simulator() {
         backgroundAttachment: 'fixed'
       }}
     >
+      <StarCursor />
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      
+      {/* Quantum Atom in background */}
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none z-0">
+        <QuantumAtom />
+      </div>
       
       {/* Header */}
       <header className="relative border-b border-primary/20">
