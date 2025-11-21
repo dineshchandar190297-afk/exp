@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
 import { Atom, Mail, Phone } from 'lucide-react';
-import spaceBackground from '@/assets/space-background.png';
+import QuantumAtom from '@/components/QuantumAtom';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -110,37 +110,17 @@ export default function Auth() {
   };
 
   return (
-    <div 
-      className="min-h-screen flex items-center justify-center p-4 relative"
-      style={{
-        backgroundImage: `url(${spaceBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+    <div className="min-h-screen flex items-center justify-center p-4 relative bg-background overflow-hidden">
+      <QuantumAtom />
       
-      <Card className="w-full max-w-md p-8 bg-card/90 backdrop-blur border-primary/20 relative z-10">
+      <Card className="w-full max-w-md p-8 bg-card/95 backdrop-blur-md border-primary/30 relative z-20 shadow-2xl">
         <div className="flex items-center justify-center gap-3 mb-6">
           <Atom className="w-10 h-10 text-primary animate-spin-slow" />
           <h1 className="text-3xl font-bold glow-text">Quantum Web</h1>
         </div>
 
-        <Tabs value={authMethod} onValueChange={(v) => setAuthMethod(v as 'email' | 'phone')}>
-          <TabsList className="grid w-full grid-cols-2 mb-6">
-            <TabsTrigger value="email">
-              <Mail className="w-4 h-4 mr-2" />
-              Email
-            </TabsTrigger>
-            <TabsTrigger value="phone">
-              <Phone className="w-4 h-4 mr-2" />
-              Phone
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="email">
-            <form onSubmit={handleEmailAuth} className="space-y-4">
+        {!isSignUp ? (
+          <form onSubmit={handleEmailAuth} className="space-y-4">
               <div>
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -164,53 +144,50 @@ export default function Auth() {
                   minLength={6}
                 />
               </div>
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Loading...' : isSignUp ? 'Sign Up' : 'Sign In'}
-              </Button>
-            </form>
-          </TabsContent>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Signing In...' : 'Sign In'}
+            </Button>
+          </form>
+        ) : (
+          <Tabs value={authMethod} onValueChange={(v) => setAuthMethod(v as 'email' | 'phone')}>
+            <TabsList className="grid w-full grid-cols-2 mb-6">
+              <TabsTrigger value="email">
+                <Mail className="w-4 h-4 mr-2" />
+                Email
+              </TabsTrigger>
+              <TabsTrigger value="phone">
+                <Phone className="w-4 h-4 mr-2" />
+                Phone OTP
+              </TabsTrigger>
+            </TabsList>
 
-          <TabsContent value="phone">
-            {!otpSent ? (
-              <form onSubmit={handlePhoneOTPRequest} className="space-y-4">
+            <TabsContent value="email">
+              <form onSubmit={handleEmailAuth} className="space-y-4">
                 <div>
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="signup-email">Email</Label>
                   <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+1234567890"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    id="signup-email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Include country code (e.g., +1 for US)
-                  </p>
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isLoading}
-                >
-                  {isLoading ? 'Sending...' : 'Send OTP'}
-                </Button>
-              </form>
-            ) : (
-              <form onSubmit={handlePhoneOTPVerify} className="space-y-4">
                 <div>
-                  <Label htmlFor="otp">Enter OTP</Label>
+                  <Label htmlFor="signup-password">Password</Label>
                   <Input
-                    id="otp"
-                    type="text"
-                    placeholder="123456"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
+                    id="signup-password"
+                    type="password"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
-                    maxLength={6}
+                    minLength={6}
                   />
                 </div>
                 <Button
@@ -218,36 +195,88 @@ export default function Auth() {
                   className="w-full"
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Verifying...' : 'Verify OTP'}
-                </Button>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  className="w-full"
-                  onClick={() => setOtpSent(false)}
-                >
-                  Change Phone Number
+                  {isLoading ? 'Creating Account...' : 'Sign Up'}
                 </Button>
               </form>
-            )}
-          </TabsContent>
-        </Tabs>
+            </TabsContent>
 
-        {authMethod === 'email' && (
-          <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground">
-              {isSignUp ? 'Already have an account?' : 'New user?'}
-              {' '}
-              <button
-                type="button"
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="text-primary hover:underline font-medium"
-              >
-                {isSignUp ? 'Sign In' : 'Create Account'}
-              </button>
-            </p>
-          </div>
+            <TabsContent value="phone">
+              {!otpSent ? (
+                <form onSubmit={handlePhoneOTPRequest} className="space-y-4">
+                  <div>
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1234567890"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Include country code (e.g., +1 for US)
+                    </p>
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Sending OTP...' : 'Send OTP'}
+                  </Button>
+                </form>
+              ) : (
+                <form onSubmit={handlePhoneOTPVerify} className="space-y-4">
+                  <div>
+                    <Label htmlFor="otp">Enter OTP</Label>
+                    <Input
+                      id="otp"
+                      type="text"
+                      placeholder="123456"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      required
+                      maxLength={6}
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Verifying...' : 'Verify OTP'}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    className="w-full"
+                    onClick={() => setOtpSent(false)}
+                  >
+                    Change Phone Number
+                  </Button>
+                </form>
+              )}
+            </TabsContent>
+          </Tabs>
         )}
+
+        <div className="mt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            {isSignUp ? 'Already have an account?' : 'New user?'}
+            {' '}
+            <button
+              type="button"
+              onClick={() => {
+                setIsSignUp(!isSignUp);
+                setAuthMethod('email');
+                setOtpSent(false);
+              }}
+              className="text-primary hover:underline font-medium"
+            >
+              {isSignUp ? 'Sign In' : 'Create Account'}
+            </button>
+          </p>
+        </div>
       </Card>
     </div>
   );
