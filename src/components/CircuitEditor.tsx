@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Play, Pause, RotateCcw, Download, Upload } from 'lucide-react';
 import { toast } from 'sonner';
+import GateInfo from './GateInfo';
 
 export interface Gate {
   type: 'H' | 'X' | 'Y' | 'Z' | 'CX' | 'M';
@@ -145,6 +146,8 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
 
   return (
     <div className="w-full space-y-4">
+      <GateInfo selectedGate={selectedGateType} />
+      
       <Card className="p-4 bg-card/50 backdrop-blur border-primary/20">
         <div className="flex flex-wrap gap-3 items-center justify-between">
           <div className="flex gap-2 flex-wrap">

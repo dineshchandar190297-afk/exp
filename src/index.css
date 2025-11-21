@@ -89,4 +89,12 @@ All colors MUST be HSL.
   .quantum-gradient {
     background: var(--gradient-quantum);
   }
+  
+  .star-cursor {
+    cursor: none;
+  }
+  
+  .star-cursor * {
+    cursor: none;
+  }
 }
