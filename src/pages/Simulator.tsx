@@ -1,9 +1,8 @@
-import { useState, Suspense, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { supabase } from '@/integrations/supabase/client';
-import QuantumAtom from '@/components/QuantumAtom';
 import CircuitEditor, { Circuit } from '@/components/CircuitEditor';
 import ResultsPanel, { SimulationResult } from '@/components/ResultsPanel';
 import { BookOpen, LogOut, History } from 'lucide-react';
@@ -116,29 +115,19 @@ export default function Simulator() {
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       
-      {/* Header with Quantum Atom */}
-      <header className="relative h-[400px] overflow-hidden border-b border-primary/20">
-        <QuantumAtom />
-        
-        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-between py-6">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold glow-text">Quantum Simulator</h1>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => navigate('/history')}>
-                <History className="w-4 h-4 mr-2" />
-                History
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleSignOut}>
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
-              </Button>
-            </div>
-          </div>
-          
-          <div className="text-center">
-            <p className="text-xl text-muted-foreground">
-              Design and simulate quantum circuits
-            </p>
+      {/* Header */}
+      <header className="relative border-b border-primary/20">
+        <div className="relative z-20 container mx-auto px-4 py-6 flex justify-between items-center">
+          <h1 className="text-3xl font-bold glow-text">Quantum Simulator</h1>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm" onClick={() => navigate('/history')}>
+              <History className="w-4 h-4 mr-2" />
+              History
+            </Button>
+            <Button variant="outline" size="sm" onClick={handleSignOut}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Sign Out
+            </Button>
           </div>
         </div>
       </header>
