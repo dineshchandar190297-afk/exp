@@ -60,7 +60,6 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // Calculate qubit and time position
     const qubit = Math.round((y - PADDING) / WIRE_SPACING);
     const time = Math.round((x - PADDING) / TIME_SPACING);
 
@@ -80,7 +79,7 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
       setDraggedGate(null);
       toast.success(`${draggedGate.type} gate added to qubit ${qubit}`);
     }
-  }, [draggedGate, numQubits, PADDING, WIRE_SPACING, TIME_SPACING]);
+  }, [draggedGate, numQubits]);
 
   const handleGateSelect = (type: Gate['type']) => {
     if (type === 'CX') {
@@ -158,7 +157,7 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
                   variant={selectedGateType === gateType ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => handleGateSelect(gateType)}
-                  className="font-mono"
+                  className="font-mono gooey-button"
                   style={{
                     borderColor: GATE_COLORS[gateType],
                     ...(selectedGateType === gateType ? { backgroundColor: GATE_COLORS[gateType] } : {}),
@@ -173,7 +172,7 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
                 variant={selectedGateType === 'CX' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => handleGateSelect('CX')}
-                className="font-mono"
+                className="font-mono gooey-button"
                 style={{
                   borderColor: GATE_COLORS.CX,
                   ...(selectedGateType === 'CX' ? { backgroundColor: GATE_COLORS.CX } : {}),
@@ -185,7 +184,7 @@ export default function CircuitEditor({ onSimulate, isSimulating }: CircuitEdito
                 variant={selectedGateType === 'M' ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => handleGateSelect('M')}
-                className="font-mono"
+                className="font-mono gooey-button"
                 style={{
                   borderColor: GATE_COLORS.M,
                   ...(selectedGateType === 'M' ? { backgroundColor: GATE_COLORS.M } : {}),

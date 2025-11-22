@@ -53,6 +53,12 @@ export default {
           horizon: "hsl(var(--event-horizon))",
           accretion: "hsl(var(--accretion))",
         },
+        electric: {
+          blue: "hsl(var(--electric-blue))",
+        },
+        laser: {
+          cyan: "hsl(var(--laser-cyan))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
