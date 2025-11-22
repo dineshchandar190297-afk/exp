@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import QuantumAtom from '@/components/QuantumAtom';
 import StarCursor from '@/components/StarCursor';
+import Logo from '@/components/Logo';
 import spaceBackground from '@/assets/space-background.png';
 import { Sparkles } from 'lucide-react';
 
@@ -30,6 +31,7 @@ export default function Index() {
       }}
     >
       <StarCursor />
+      <Logo />
       <div className="absolute inset-0 bg-background/50 backdrop-blur-sm" />
       
       {/* Quantum Atom centered and lower */}

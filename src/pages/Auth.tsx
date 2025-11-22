@@ -10,6 +10,8 @@ import { toast } from 'sonner';
 import { Atom, Mail, Phone } from 'lucide-react';
 import QuantumAtom from '@/components/QuantumAtom';
 import StarCursor from '@/components/StarCursor';
+import Logo from '@/components/Logo';
+import LaserFlow from '@/components/LaserFlow';
 import spaceBackground from '@/assets/space-background.png';
 
 export default function Auth() {
@@ -122,6 +124,9 @@ export default function Auth() {
       }}
     >
       <StarCursor />
+      <Logo />
+      <LaserFlow position="left" />
+      <LaserFlow position="right" />
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       
       {/* Quantum Atom in background */}
@@ -129,7 +134,7 @@ export default function Auth() {
         <QuantumAtom />
       </div>
       
-      <Card className="w-full max-w-md p-8 bg-card/95 backdrop-blur-md border-primary/30 relative z-20 shadow-2xl">
+      <Card className="w-full max-w-md p-8 bg-card/95 backdrop-blur-md electric-border relative z-20 shadow-2xl">
         <div className="flex items-center justify-center gap-3 mb-6">
           <Atom className="w-10 h-10 text-primary animate-spin-slow" />
           <h1 className="text-3xl font-bold glow-text">Quantum Web</h1>

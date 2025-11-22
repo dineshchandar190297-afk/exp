@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import spaceBackground from '@/assets/space-background.png';
 import QuantumAtom from '@/components/QuantumAtom';
 import StarCursor from '@/components/StarCursor';
+import Logo from '@/components/Logo';
 
 export default function Simulator() {
   const navigate = useNavigate();
@@ -116,10 +117,11 @@ export default function Simulator() {
       }}
     >
       <StarCursor />
+      <Logo />
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       
-      {/* Quantum Atom at top */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 opacity-30 pointer-events-none z-0">
+      {/* Quantum Atom at top - more visible */}
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 opacity-60 pointer-events-none z-0">
         <QuantumAtom />
       </div>
       
