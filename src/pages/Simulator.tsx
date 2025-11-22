@@ -145,7 +145,7 @@ export default function Simulator() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-8 relative z-20">
+      <main className="flex-1 container mx-auto px-4 py-8 relative z-20 mt-20">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-4">
             <Card className="p-6 bg-card/90 backdrop-blur border-primary/20">
