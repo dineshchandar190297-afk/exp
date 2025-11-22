@@ -120,13 +120,13 @@ export default function Simulator() {
       <Logo />
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
       
-      {/* Quantum Atom at top - more visible */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 opacity-60 pointer-events-none z-0">
+      {/* Quantum Atom at top - highly visible */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 opacity-90 pointer-events-none z-10">
         <QuantumAtom />
       </div>
       
       {/* Header */}
-      <header className="relative border-b border-primary/20 z-10">
+      <header className="relative border-b border-primary/20 z-20 mt-[420px]">
         <div className="relative z-20 container mx-auto px-4 py-6 flex justify-between items-center">
           <h1 className="text-3xl font-bold glow-text">Quantum Simulator</h1>
           <div className="flex gap-2">
@@ -143,7 +143,7 @@ export default function Simulator() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-8 relative z-10">
+      <main className="flex-1 container mx-auto px-4 py-8 relative z-20">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-4">
             <Card className="p-6 bg-card/90 backdrop-blur border-primary/20">
