@@ -41,7 +41,12 @@ export default function Index() {
 
       {/* Main Content */}
       <div className="relative z-20 text-center space-y-8 px-4">
-        <div className="space-y-4">
+        <div className="space-y-4"><div className="relative z-10 flex justify-center mb-8">
+  <div className="relative w-[420px] h-[420px]">
+    <QuantumAtom />
+  </div>
+</div>
+
           <h1 className="text-6xl md:text-8xl font-bold glow-text">
             Quantum Web
           </h1>
@@ -62,3 +67,4 @@ export default function Index() {
     </div>
   );
 }
+

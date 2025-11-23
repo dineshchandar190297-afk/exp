@@ -1,46 +1,40 @@
-import { useEffect, useRef } from 'react';
-import quantumAtomImg from '@/assets/quantum-atom.png';
+﻿import { useEffect, useRef } from "react";
+import quantumAtomImg from "@/assets/quantum-atom.png";
 
 export default function QuantumAtom() {
-  const atomRef = useRef<HTMLDivElement>(null);
+  const atomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!atomRef.current) return;
-
-    let rotation = 0;
-    let animationFrameId: number;
+    let frameId: number;
+    let angle = 0;
 
     const animate = () => {
-      rotation += 0.5;
+      angle += 0.4;
       if (atomRef.current) {
-        atomRef.current.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+        atomRef.current.style.transform = `rotate(${angle}deg)`;
       }
-      animationFrameId = requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     };
 
-    animate();
-
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   return (
-    <div
-      ref={atomRef}
-      className="absolute top-1/2 left-1/2 w-[400px] h-[400px] pointer-events-none z-10"
-      style={{
-        transform: 'translate(-50%, -50%)',
-        filter: 'drop-shadow(0 0 40px rgba(168, 85, 247, 0.6))',
-      }}
-    >
-      <img
-        src={quantumAtomImg}
-        alt="Quantum Atom"
-        className="w-full h-full object-contain"
-      />
+    <div className="w-[260px] h-[260px] flex items-center justify-center">
+      <div
+        ref={atomRef}
+        className="w-full h-full rounded-full overflow-visible"
+        style={{
+          filter: "drop-shadow(0 0 30px rgba(129, 230, 217, 0.8))",
+        }}
+      >
+        <img
+          src={quantumAtomImg}
+          alt="Quantum Atom"
+          className="w-full h-full object-contain"
+        />
+      </div>
     </div>
   );
 }
