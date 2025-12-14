@@ -1,30 +1,30 @@
-import { Card } from '@/components/ui/card';
+﻿import { Card } from '@/components/ui/card';
 import { Info } from 'lucide-react';
 
 const GATE_INFO = {
   H: {
     name: 'Hadamard Gate',
-    description: 'Creates superposition by putting qubit into equal probability of |0⟩ and |1⟩',
-    matrix: '1/√2 [[1, 1], [1, -1]]',
+    description: 'Creates superposition by putting qubit into equal probability of |0âŸ© and |1âŸ©',
+    matrix: '1/âˆš2 [[1, 1], [1, -1]]',
   },
   X: {
     name: 'Pauli-X Gate',
-    description: 'Quantum NOT gate - flips |0⟩ to |1⟩ and vice versa',
+    description: 'Quantum NOT gate - flips |0âŸ© to |1âŸ© and vice versa',
     matrix: '[[0, 1], [1, 0]]',
   },
   Y: {
     name: 'Pauli-Y Gate',
-    description: 'Rotates qubit around Y-axis by π radians',
+    description: 'Rotates qubit around Y-axis by Ï€ radians',
     matrix: '[[0, -i], [i, 0]]',
   },
   Z: {
     name: 'Pauli-Z Gate',
-    description: 'Flips phase of |1⟩ state, leaves |0⟩ unchanged',
+    description: 'Flips phase of |1âŸ© state, leaves |0âŸ© unchanged',
     matrix: '[[1, 0], [0, -1]]',
   },
   CX: {
     name: 'Controlled-NOT Gate',
-    description: 'Two-qubit gate that flips target if control is |1⟩, creates entanglement',
+    description: 'Two-qubit gate that flips target if control is |1âŸ©, creates entanglement',
     matrix: '[[1,0,0,0], [0,1,0,0], [0,0,0,1], [0,0,1,0]]',
   },
   M: {
@@ -60,3 +60,4 @@ export default function GateInfo({ selectedGate }: GateInfoProps) {
     </Card>
   );
 }
+

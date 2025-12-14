@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Sparkles } from 'lucide-react';
 
 interface Star {
@@ -78,3 +78,4 @@ export default function StarCursor() {
     </>
   );
 }
+

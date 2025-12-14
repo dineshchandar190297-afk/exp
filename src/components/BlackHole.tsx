@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+﻿import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Torus } from '@react-three/drei';
 import * as THREE from 'three';
@@ -146,3 +146,4 @@ export default function BlackHole({ isPaused = false }: { isPaused?: boolean }) 
     </div>
   );
 }
+

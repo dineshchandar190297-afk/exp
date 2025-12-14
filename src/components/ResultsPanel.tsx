@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+ï»¿import { Card } from "@/components/ui/card";
 
 export interface SimulationResult {
   counts: Record<string, number>;
@@ -38,7 +38,7 @@ export default function ResultsPanel({ result, isSimulating }: ResultsPanelProps
         <div className="flex items-center justify-between mb-4 gap-4">
           <h2 className="text-xl font-semibold">Measurement results</h2>
           <span className="text-xs text-muted-foreground">
-            Shots: {totalShots} • Execution time: {result.executionTime} ms
+            Shots: {totalShots} â€¢ Execution time: {result.executionTime} ms
           </span>
         </div>
 
@@ -71,7 +71,7 @@ export default function ResultsPanel({ result, isSimulating }: ResultsPanelProps
         <div className="grid grid-cols-[auto,1fr,1fr] gap-x-4 gap-y-2 text-xs md:text-sm">
           <span className="font-semibold text-muted-foreground">Basis</span>
           <span className="font-semibold text-muted-foreground">Amplitude</span>
-          <span className="font-semibold text-muted-foreground">Phase (°)</span>
+          <span className="font-semibold text-muted-foreground">Phase (Â°)</span>
 
           {result.statevector.map((amp, idx) => {
             const magnitude = Math.sqrt(amp.real * amp.real + amp.imag * amp.imag);
@@ -94,3 +94,4 @@ export default function ResultsPanel({ result, isSimulating }: ResultsPanelProps
     </div>
   );
 }
+

@@ -46,3 +46,4 @@ const QuantumOutcomeDiagram: React.FC<QuantumOutcomeDiagramProps> = ({ counts })
 };
 
 export default QuantumOutcomeDiagram;
+

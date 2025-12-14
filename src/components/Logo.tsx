@@ -1,4 +1,4 @@
-import QuantumAtom from '@/components/QuantumAtom';
+﻿import QuantumAtom from '@/components/QuantumAtom';
 import logo from '@/assets/logo.png';
 
 export default function Logo() {
@@ -15,5 +15,6 @@ export default function Logo() {
     </div>
   );
 }
+
 
 

@@ -38,3 +38,4 @@ export default function BlochDial({ angle }: BlochDialProps) {
     </div>
   );
 }
+

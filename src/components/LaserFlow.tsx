@@ -1,4 +1,4 @@
-export default function LaserFlow({ position = 'left' }: { position?: 'left' | 'right' }) {
+﻿export default function LaserFlow({ position = 'left' }: { position?: 'left' | 'right' }) {
   return (
     <div className={`laser-flow ${position === 'right' ? 'laser-flow-right' : 'laser-flow-left'}`}>
       <div className="laser-beam"></div>
@@ -7,3 +7,4 @@ export default function LaserFlow({ position = 'left' }: { position?: 'left' | '
     </div>
   );
 }
+
