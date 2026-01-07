@@ -3,7 +3,7 @@ flask-cors==4.0.0
 flask-socketio==5.3.6
 qiskit==1.0.0
 qiskit-aer==0.13.3
-matplotlib==3.8.5
+matplotlib==3.8.4
 python-socketio==5.11.0
 python-engineio==4.9.0
 eventlet==0.35.2
